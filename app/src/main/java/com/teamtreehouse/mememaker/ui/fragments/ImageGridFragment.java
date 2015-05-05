@@ -69,6 +69,15 @@ public class ImageGridFragment extends Fragment {
 
     private ArrayList extractFiles() {
         final ArrayList imageItems = new ArrayList();
+        File[] filteredFiles = FileUtilities.listFiles(getActivity());
+        for(File filteredFile : filteredFiles){
+            // Decode a file path into a bitmap. If the specified file name is null,
+            // or cannot be decoded into a bitmap, the function returns null.
+            Bitmap bitmap = BitmapFactory.decodeFile(filteredFile.getAbsolutePath());
+            ImageGridItem imageGridItem = new ImageGridItem(bitmap, filteredFile.getName(),
+                    filteredFile.getAbsolutePath());
+            imageItems.add(imageGridItem);
+        }
         return imageItems;
     }
 
