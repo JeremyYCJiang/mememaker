@@ -25,5 +25,7 @@
     <string name="send_to">Send To</string>
     <string name="action_choose_font">Font</string>
     <string name="external_storage_unavailable_message">The external storage is now unavailable, save to internal storage by default!</string>
+    <string name="storage_key">STORAGE</string>
+    <string name="story_default_value">INTERNAL</string>
 
 </resources>

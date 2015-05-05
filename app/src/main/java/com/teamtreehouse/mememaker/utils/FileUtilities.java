@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Environment;
 import android.widget.Toast;
 
+import com.teamtreehouse.mememaker.MemeMakerApplicationSettings;
 import com.teamtreehouse.mememaker.R;
 
 import java.io.File;
@@ -17,9 +18,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-/**
- * Created by Evan Anger on 7/28/14.
- */
+
 public class FileUtilities {
 
     public static void saveAssetImage(Context context, String assetName) {
@@ -46,7 +45,8 @@ public class FileUtilities {
 
     public static File getFileDirectory(Context context){
         //Using SharedPreferences to pick which location to use
-        String storageType = StorageType.INTERNAL;
+        MemeMakerApplicationSettings settings = new MemeMakerApplicationSettings(context);
+        String storageType = settings.getStoragePreference();
         //Get directory from internal storage
         if(storageType.equals(StorageType.INTERNAL)){
             return context.getFilesDir();

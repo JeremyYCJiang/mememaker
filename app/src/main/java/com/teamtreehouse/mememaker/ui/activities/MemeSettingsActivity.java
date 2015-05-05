@@ -7,14 +7,13 @@ import android.view.MenuItem;
 
 import com.teamtreehouse.mememaker.ui.fragments.MemeSettingsFragment;
 
-/**
- * Created by Evan Anger on 8/11/14.
- */
 public class MemeSettingsActivity extends Activity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Display the fragment as the main content.
         getFragmentManager().beginTransaction()
                 .replace(android.R.id.content, new MemeSettingsFragment())
                 .commit();
