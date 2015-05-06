@@ -8,9 +8,7 @@ import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-/**
- * Created by Evan Anger on 8/17/14.
- */
+
 public class Meme implements Serializable {
     private int mId;
     private String mAssetLocation;
@@ -51,6 +49,8 @@ public class Meme implements Serializable {
         File file = new File(mAssetLocation);
         if(!file.exists()) {
             Log.e("FILE IS MISSING", mAssetLocation);
+        }else {
+            Log.e("FILE LOCATION", mAssetLocation);
         }
         return BitmapFactory.decodeFile(mAssetLocation);
     }

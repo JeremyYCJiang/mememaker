@@ -14,9 +14,7 @@ import com.teamtreehouse.mememaker.models.Meme;
 
 import java.util.List;
 
-/**
- * Created by Evan Anger on 7/28/14.
- */
+
 public class MemeItemListAdapter extends BaseAdapter {
 
     private List<Meme> imageItems;

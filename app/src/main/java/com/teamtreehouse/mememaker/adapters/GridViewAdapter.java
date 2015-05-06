@@ -14,9 +14,7 @@ import com.teamtreehouse.mememaker.models.ImageGridItem;
 
 import java.util.ArrayList;
 
-/**
- * Created by MightyMac on 7/5/14.
- */
+
 public class GridViewAdapter extends ArrayAdapter {
     private Context context;
     private int layoutResourceId;

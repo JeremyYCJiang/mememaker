@@ -2,9 +2,7 @@ package com.teamtreehouse.mememaker.models;
 
 import java.io.Serializable;
 
-/**
- * Created by Evan Anger on 8/17/14.
- */
+
 public class MemeAnnotation implements Serializable {
     private int mId = -1;
     private String mColor;

@@ -1,8 +1,6 @@
 package com.teamtreehouse.mememaker.models;
 
-/**
- * Created by MightyMac on 7/5/14.
- */
+
 import android.graphics.Bitmap;
 
 public class ImageGridItem {
