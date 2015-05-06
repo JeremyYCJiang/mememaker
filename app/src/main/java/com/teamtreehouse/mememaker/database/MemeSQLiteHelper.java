@@ -8,17 +8,22 @@ import android.provider.BaseColumns;
 public class MemeSQLiteHelper extends SQLiteOpenHelper{
 
     private static final String DB_NAME = "memes.db";
-    private static final int DB_VERSION = 1;
+    //change DB_VERSION from 1 to 2
+    private static final int DB_VERSION = 2;
 
     //Meme Table functionality
     public static final String MEMES_TABLE = "MEMES";
     public static final String COLUMN_MEME_ASSET = "ASSET";
     public static final String COLUMN_MEME_NAME = "NAME";
+    //add a new column CREATED_DATE
+    public static final String COLUMN_MEME_CREATED_DATE = "CREATED_DATE";
+    //add typeValue to CREATED_DATE
     private static final String CREATE_MEMES =
             "CREATE TABLE " + MEMES_TABLE +"(" +
                     BaseColumns._ID +" INTEGER PRIMARY KEY AUTOINCREMENT," +
                     COLUMN_MEME_ASSET + " TEXT," +
-                    COLUMN_MEME_NAME + " TEXT)";
+                    COLUMN_MEME_NAME + " TEXT," +
+                    COLUMN_MEME_CREATED_DATE + " INTEGER)";
 
     //Meme Table Annotations functionality
     public static final String ANNOTATIONS_TABLE = "ANNOTATIONS";
@@ -49,8 +54,14 @@ public class MemeSQLiteHelper extends SQLiteOpenHelper{
         sqLiteDatabase.execSQL(CREATE_ANNOTATIONS);
     }
 
+    private static final String ALTER_ADD_CREATED_DATE = "ALTER TABLE " + MEMES_TABLE +
+                        " ADD COLUMN " + COLUMN_MEME_CREATED_DATE + " INTEGER";
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
+        switch (oldVersion){
+            case 1 :
+                sqLiteDatabase.execSQL(ALTER_ADD_CREATED_DATE);
+                // we want both updates, so no break statement here...
+        }
     }
 }
